@@ -32,13 +32,13 @@ export default defineConfig({
       },
       {
         title: 'PC',
-        include: (file) => {
+        include: file => {
           return file.path.includes('pc');
         },
       },
       {
         title: 'Mobile',
-        include: (file) => {
+        include: file => {
           return file.path.includes('mobile');
         },
       },
@@ -46,7 +46,7 @@ export default defineConfig({
   },
   defaultStoryProps: {
     icon: 'carbon:assembly-reference',
-    iconColor: '#00c5a5',
+    // iconColor: '#00c5a5',
     responsiveDisabled: true,
     autoPropsDisabled: true,
   },
