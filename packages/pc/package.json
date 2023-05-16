@@ -1,0 +1,21 @@
+{
+  "name": "@gupo/pc-components",
+  "version": "0.0.1",
+  "description": "A pc side business pro component library based on `vue@3.x` and `ant-design-vue@3.x`",
+  "scripts": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue@3.x",
+    "ant-design-vue@3.x",
+    "pro components",
+    "pc components",
+    "full ts"
+  ],
+  "author": "artsmp@126.com",
+  "engines": {
+    "node": ">=14"
+  }
+}

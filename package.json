@@ -1,0 +1,11 @@
+{
+  "name": "gupo-comp",
+  "private": true,
+  "author": "artsmp@126.com",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^6.6.2"
+  }
+}

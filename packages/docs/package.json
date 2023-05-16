@@ -1,0 +1,11 @@
+{
+  "name": "@gupo/docs",
+  "private": "true",
+  "version": "0.0.1",
+  "description": "A doc site based on histoire",
+  "scripts": {},
+  "author": "artsmp@126.com",
+  "engines": {
+    "node": ">=14"
+  }
+}

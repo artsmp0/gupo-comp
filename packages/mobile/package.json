@@ -1,0 +1,21 @@
+{
+  "name": "@gupo/mobile-components",
+  "version": "0.0.1",
+  "description": "A mobile side business pro component library based on `vue@3.x` and `vant@4.x`",
+  "scripts": {},
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "keywords": [
+    "vue@3.x",
+    "vant@4.x",
+    "pro components",
+    "mobile components",
+    "full ts"
+  ],
+  "author": "artsmp@126.com",
+  "engines": {
+    "node": ">=14"
+  }
+}
