@@ -1,5 +1,4 @@
 import timeVue from './src/time.vue';
-
 import { withInstall } from '@gupo/common';
 
 export const GupoTime = withInstall(timeVue);

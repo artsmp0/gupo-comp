@@ -1,7 +1,8 @@
 import { App } from 'vue';
 import GupoTime from './time';
+import GupoEllipsis from './ellipsis';
 
-const components = [GupoTime];
+const components = [GupoTime, GupoEllipsis];
 export default {
   install(app: App) {
     components.forEach(comp => {
