@@ -1,5 +1,5 @@
 {
-  "name": "@gupo/mobile-components",
+  "name": "@gupo/build-tool",
   "version": "0.0.1",
   "description": "A build script tool for gupo pro component library",
   "scripts": {},

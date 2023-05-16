@@ -7,5 +7,8 @@
   ],
   "devDependencies": {
     "lerna": "^6.6.2"
+  },
+  "scripts": {
+    "dev": "lerna run story:dev --scope=@gupo/docs"
   }
 }

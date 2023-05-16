@@ -2,10 +2,27 @@
   "name": "@gupo/docs",
   "private": "true",
   "version": "0.0.1",
+  "main": "index.ts",
   "description": "A doc site based on histoire",
-  "scripts": {},
+  "scripts": {
+    "story:dev": "histoire dev",
+    "story:build": "histoire build",
+    "story:preview": "histoire preview"
+  },
   "author": "artsmp@126.com",
   "engines": {
     "node": ">=14"
+  },
+  "dependencies": {
+    "@gupo/pc-components": "*",
+    "vue": "^3.3.2"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "^0.16.1",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "histoire": "^0.16.1",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.6"
   }
 }
