@@ -13,10 +13,10 @@ export default defineConfig({
       // dark: '/src/imgs/logo.png',
     },
     colors: {
-      primary: defaultColors.orange,
+      primary: defaultColors.amber,
     },
     defaultColorScheme: 'light',
-    hideColorSchemeSwitch: true,
+    // hideColorSchemeSwitch: true,
     storeColorScheme: false,
   },
   vite: {

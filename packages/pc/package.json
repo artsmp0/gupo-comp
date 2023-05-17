@@ -20,19 +20,19 @@
   },
   "peerDependencies": {
     "@ant-design/icons-vue": ">=6",
-    "ant-design-vue": ">=3.2.0",
+    "ant-design-vue": ">=4",
     "vue": ">=3.2.0"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^6.1.0",
+    "@gupo/common": "*",
     "@vueuse/core": "^10.1.2",
-    "ant-design-vue": "^3.2.20",
+    "ant-design-vue": "^4.0.0-beta.4",
     "date-fns": "^2.30.0",
     "lodash-es": "^4.17.21",
     "sortablejs": "^1.15.0",
     "timeago.js": "^4.0.2",
-    "vue": "^3.3.2",
-    "@gupo/common": "*"
+    "vue": "^3.3.2"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.7",

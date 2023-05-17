@@ -34,6 +34,7 @@ watch($text, async v => {
   if (v) {
     await nextTick();
     const actualHeight = $text.value?.offsetHeight;
+
     const overHeight = $text.value?.scrollHeight;
     collapsedHeight.value = actualHeight!;
     scrollHeight.value = overHeight!;

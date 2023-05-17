@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import '../../../../pc/ellipsis/style';
+import { ConfigProvider, Button } from 'ant-design-vue';
 
 const shortStr = 'Lorem ipsum dolor sit';
 const longStr =
@@ -21,7 +22,16 @@ const longChinese =
   >
     <Variant title="短文本">
       <div class="content">
-        <GupoEllipsis :text="shortStr" />
+        <ConfigProvider
+          :theme="{
+            token: {
+              colorPrimary: '#ff1717',
+            },
+          }"
+        >
+          <GupoEllipsis :text="shortStr" />
+          <Button type="primary">按钮</Button>
+        </ConfigProvider>
       </div>
     </Variant>
     <Variant title="单行省略">
@@ -46,7 +56,7 @@ const longChinese =
     </Variant>
     <Variant title="提示框背景颜色">
       <div class="content">
-        <GupoEllipsis :text="longStr" :line="3" color="#ff8738" />
+        <GupoEllipsis :text="longStr" :line="3" color="pink" />
       </div>
     </Variant>
     <Variant title="点击展开">

@@ -25,6 +25,7 @@
     "stylelint-prettier": "^3.0.0"
   },
   "scripts": {
-    "dev": "lerna run story:dev --scope=@gupo/docs"
+    "dev": "lerna run story:dev --scope=@gupo/docs",
+    "build:docs": "lerna run story:build --scope=@gupo/docs"
   }
 }
