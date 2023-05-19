@@ -38,6 +38,10 @@ watch($text, async v => {
     const overHeight = $text.value?.scrollHeight;
     collapsedHeight.value = actualHeight!;
     scrollHeight.value = overHeight!;
+    console.log(
+      'getComputedStyle($text.value!).lineHeight: ',
+      getComputedStyle($text.value!).lineHeight
+    );
     lineHight.value = parseFloat(getComputedStyle($text.value!).lineHeight);
     if (actualHeight && overHeight && actualHeight < overHeight) {
       isOverflow.value = true;
