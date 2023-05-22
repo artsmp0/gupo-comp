@@ -78,7 +78,6 @@ const showTitle = computed(() => {
 });
 
 const ns = useNamespace('ellipsis');
-console.log('ns: ', ns.b(), ns.m('xxx'), ns.e('toggle-btn'));
 </script>
 
 <template>

@@ -13,7 +13,7 @@ export default defineConfig({
       // dark: '/src/imgs/logo.png',
     },
     colors: {
-      primary: defaultColors.amber,
+      primary: defaultColors.rose,
     },
     defaultColorScheme: 'light',
     // hideColorSchemeSwitch: true,
