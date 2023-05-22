@@ -5,7 +5,9 @@ import lodash from 'lodash';
 import { checkName, files } from './utils';
 import { componentPkgPath } from './constants';
 
-(async () => {
+init();
+
+async function init() {
   const response = await prompts({
     type: 'text',
     name: 'name',
@@ -18,6 +20,12 @@ import { componentPkgPath } from './constants';
 
   const prefixPascalName = `Gupo${lodash.upperFirst(lodash.camelCase(name))}`;
   const prefixKebabName = `gupo-${name}`;
+  genFile(name, prefixKebabName, prefixPascalName);
+  updatePcEntry(name, prefixKebabName, prefixPascalName);
+}
+
+/** 生成文件 */
+function genFile(name: string, prefixKebabName: string, prefixPascalName: string) {
   files.forEach(async f => {
     const tplPath = path.resolve(__dirname, `./template/${f.tpl}`);
     let data = await fs.readFile(tplPath, 'utf-8');
@@ -34,4 +42,18 @@ import { componentPkgPath } from './constants';
 
     console.log(`已创建：${outputPath}`);
   });
-})();
+}
+
+async function updatePcEntry(name: string, prefixKebabName: string, prefixPascalName: string) {
+  // 新增了一个组件，我们需要更新 index.ts 文件中的内容
+  const entryPath = path.resolve(componentPkgPath, './index.ts');
+  // 读取这个文件中的内容并新增一些内容表示添加新组件
+  let data = await fs.readFile(entryPath, 'utf-8');
+  data = data.replace(
+    `import { App } from 'vue';`,
+    `import { App } from 'vue';\n import ${prefixPascalName} from './${name}';`
+  );
+  data = data.replace('];', `, ${prefixPascalName}];`);
+  data = data.replace('export {', `export { \n${prefixPascalName},`);
+  fs.writeFile(entryPath, data);
+}
