@@ -1,0 +1,38 @@
+{
+  "name": "@gupo/generator",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "description": "Automatically generates the component directory structure",
+  "scripts": {
+    "gen-comp": "tsx ./index.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "author": "artsmp@126.com",
+  "engines": {
+    "node": ">=14"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@types/babel__traverse": "^7.18.5"
+  },
+  "devDependencies": {
+    "@babel/generator": "^7.21.9",
+    "@babel/parser": "^7.21.9",
+    "@babel/traverse": "^7.21.5",
+    "@types/babel__generator": "^7.6.4",
+    "@types/fs-extra": "^11.0.1",
+    "@types/lodash": "^4.14.194",
+    "@types/prompts": "^2.4.4",
+    "fs-extra": "^11.1.1",
+    "lodash-es": "^4.17.21",
+    "magicast": "^0.2.7",
+    "prompts": "^2.4.2",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4"
+  }
+}
