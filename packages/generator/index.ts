@@ -17,15 +17,20 @@ async function init() {
 
   const name = response.name;
   if (!name) return;
-
-  const prefixPascalName = `Gupo${lodash.upperFirst(lodash.camelCase(name))}`;
+  const pascalName = lodash.upperFirst(lodash.camelCase(name));
+  const prefixPascalName = `Gupo${pascalName}`;
   const prefixKebabName = `gupo-${name}`;
-  genFile(name, prefixKebabName, prefixPascalName);
-  updatePcEntry(name, prefixKebabName, prefixPascalName);
+  genFile(name, prefixKebabName, prefixPascalName, pascalName);
+  updatePcEntry(name, prefixPascalName);
 }
 
 /** 生成文件 */
-function genFile(name: string, prefixKebabName: string, prefixPascalName: string) {
+function genFile(
+  name: string,
+  prefixKebabName: string,
+  prefixPascalName: string,
+  pascalName: string
+) {
   files.forEach(async f => {
     const tplPath = path.resolve(__dirname, `./template/${f.tpl}`);
     let data = await fs.readFile(tplPath, 'utf-8');
@@ -35,6 +40,7 @@ function genFile(name: string, prefixKebabName: string, prefixPascalName: string
       name,
       prefixPascalName,
       prefixKebabName,
+      pascalName,
     });
 
     const outputPath = path.resolve(componentPkgPath, `${name}/${f.file.replace('{name}', name)}`);
@@ -44,7 +50,7 @@ function genFile(name: string, prefixKebabName: string, prefixPascalName: string
   });
 }
 
-async function updatePcEntry(name: string, prefixKebabName: string, prefixPascalName: string) {
+async function updatePcEntry(name: string, prefixPascalName: string) {
   // 新增了一个组件，我们需要更新 index.ts 文件中的内容
   const entryPath = path.resolve(componentPkgPath, './index.ts');
   // 读取这个文件中的内容并新增一些内容表示添加新组件

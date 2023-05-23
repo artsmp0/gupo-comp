@@ -32,7 +32,7 @@
     "lodash-es": "^4.17.21",
     "sortablejs": "^1.15.0",
     "timeago.js": "^4.0.2",
-    "vue": "^3.3.2"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.7",

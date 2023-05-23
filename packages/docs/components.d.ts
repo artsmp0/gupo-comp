@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     GupoEllipsis: typeof import('../pc/ellipsis/index')['GupoEllipsis']
+    GupoTable: typeof import('../pc/table/index')['GupoTable']
     GupoTime: typeof import('../pc/time/index')['GupoTime']
   }
 }

@@ -12,7 +12,8 @@ const v3Token = convertLegacyToken(mapToken);
 const base = path.resolve(__dirname, '../pc');
 
 function sideEffects(from: string) {
-  return `${from}/style/index.less`;
+  console.log('`${from}/style/index`: ', `${from}/style/index`);
+  return `${from}/style/index`;
 }
 
 // https://vitejs.dev/config/
@@ -41,7 +42,8 @@ export default defineConfig({
               return {
                 name: componentName,
                 from,
-                // sideEffects: sideEffects(`gupo-ui/es/${name}`),
+                // 导入 css
+                sideEffects: sideEffects(`../pc/${name}`),
               };
             }
           },
