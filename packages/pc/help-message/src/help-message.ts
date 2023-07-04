@@ -1,1 +1,1 @@
-export type GupoHelpMessageProps = {}
+export type GupoHelpMessageProps = {};
