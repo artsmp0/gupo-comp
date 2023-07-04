@@ -27,6 +27,7 @@
   "scripts": {
     "dev": "lerna run story:dev --scope=@gupo/docs",
     "build:docs": "lerna run story:build --scope=@gupo/docs",
-    "gen": "lerna run gen-comp --scope=@gupo/generator"
+    "gen:pc": "lerna run gen-pc --scope=@gupo/generator",
+    "gen:mobile": "lerna run gen-mobile --scope=@gupo/generator"
   }
 }

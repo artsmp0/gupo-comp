@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNamespace } from '@gupo/common';
-import type { <%= prefixPascalName %>Props } from './<%= name %>.ts'
+import type { <%= prefixPascalName %>Props } from './<%= name %>'
 
 defineOptions({
   name: '<%= prefixPascalName %>',

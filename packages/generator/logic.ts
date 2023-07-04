@@ -1,35 +1,16 @@
 import path from 'path';
 import fs from 'fs-extra';
-import prompts from 'prompts';
 import lodash from 'lodash';
-import { checkName, files } from './utils';
-import { componentPkgPath } from './constants';
-
-init();
-
-async function init() {
-  const response = await prompts({
-    type: 'text',
-    name: 'name',
-    message: '请输入要创建的组件名称（不用带前缀）?',
-    validate: value => checkName(value),
-  });
-
-  const name = response.name;
-  if (!name) return;
-  const pascalName = lodash.upperFirst(lodash.camelCase(name));
-  const prefixPascalName = `Gupo${pascalName}`;
-  const prefixKebabName = `gupo-${name}`;
-  genFile(name, prefixKebabName, prefixPascalName, pascalName);
-  updatePcEntry(name, prefixPascalName);
-}
+import { files } from './utils';
+import { pcPkgPath } from './constants';
 
 /** 生成文件 */
-function genFile(
+export function genFile(
   name: string,
   prefixKebabName: string,
   prefixPascalName: string,
-  pascalName: string
+  pascalName: string,
+  finalPath: string
 ) {
   files.forEach(async f => {
     const tplPath = path.resolve(__dirname, `./template/${f.tpl}`);
@@ -43,14 +24,18 @@ function genFile(
       pascalName,
     });
 
-    const outputPath = path.resolve(componentPkgPath, `${name}/${f.file.replace('{name}', name)}`);
+    const outputPath = path.resolve(finalPath, `${name}/${f.file.replace('{name}', name)}`);
     await fs.outputFile(outputPath, data);
 
     console.log(`已创建：${outputPath}`);
   });
 }
 
-async function updatePcEntry(name: string, prefixPascalName: string) {
+export async function updatePcEntry(
+  name: string,
+  prefixPascalName: string,
+  componentPkgPath: string
+) {
   // 新增了一个组件，我们需要更新 index.ts 文件中的内容
   const entryPath = path.resolve(componentPkgPath, './index.ts');
   // 读取这个文件中的内容并新增一些内容表示添加新组件
