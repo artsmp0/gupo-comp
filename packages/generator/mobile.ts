@@ -1,15 +1,15 @@
-import prompts from 'prompts';
+import inquirer from 'inquirer';
 import lodash from 'lodash';
 import { checkName } from './utils';
 import { mobilePkgPath } from './constants';
 import { genFile, updatePcEntry } from './logic';
 
 async function init() {
-  const response = await prompts({
-    type: 'text',
+  const response = await inquirer.prompt({
+    type: 'input',
     name: 'name',
     message: '请输入要创建的组件名称（不用带前缀）?',
-    validate: value => checkName(value),
+    validate: value => checkName(mobilePkgPath, value),
   });
 
   const name = response.name;

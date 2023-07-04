@@ -1,6 +1,5 @@
 import path from 'path';
 import fs from 'fs-extra';
-import { pcPkgPath } from './constants';
 
 /** 验证组件名称 */
 export function checkComponentName(name: string) {
@@ -8,9 +7,9 @@ export function checkComponentName(name: string) {
 }
 
 /** 验证是否已经存在该组件 */
-export function checkName(name: string) {
+export function checkName(p: string, name: string) {
   return checkComponentName(name)
-    ? fs.existsSync(path.resolve(pcPkgPath, name))
+    ? fs.existsSync(path.resolve(p, name))
       ? `组件库中已经存在名为『${name}』的组件`
       : true
     : '组件名称请使用 kebab-case 方式命名！';

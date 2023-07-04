@@ -2,7 +2,6 @@ import path from 'path';
 import fs from 'fs-extra';
 import lodash from 'lodash';
 import { files } from './utils';
-import { pcPkgPath } from './constants';
 
 /** 生成文件 */
 export function genFile(
