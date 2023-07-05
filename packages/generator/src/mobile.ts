@@ -4,7 +4,7 @@ import { checkName } from './utils';
 import { mobilePkgPath } from './constants';
 import { genFile, updatePcEntry } from './logic';
 
-async function init() {
+export async function createMobileComp() {
   const response = await inquirer.prompt({
     type: 'input',
     name: 'name',
@@ -20,5 +20,3 @@ async function init() {
   genFile(name, prefixKebabName, prefixPascalName, pascalName, mobilePkgPath);
   updatePcEntry(name, prefixPascalName, mobilePkgPath);
 }
-
-init();

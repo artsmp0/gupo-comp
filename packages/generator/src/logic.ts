@@ -2,6 +2,8 @@ import path from 'path';
 import fs from 'fs-extra';
 import lodash from 'lodash';
 import { files } from './utils';
+import { consola } from 'consola';
+import pc from 'picocolors';
 
 /** 生成文件 */
 export function genFile(
@@ -12,9 +14,8 @@ export function genFile(
   finalPath: string
 ) {
   files.forEach(async f => {
-    const tplPath = path.resolve(__dirname, `./template/${f.tpl}`);
+    const tplPath = path.resolve(__dirname, `../template/${f.tpl}`);
     let data = await fs.readFile(tplPath, 'utf-8');
-
     const compiled = lodash.template(data);
     data = compiled({
       name,
@@ -24,9 +25,12 @@ export function genFile(
     });
 
     const outputPath = path.resolve(finalPath, `${name}/${f.file.replace('{name}', name)}`);
-    await fs.outputFile(outputPath, data);
-
-    console.log(`已创建：${outputPath}`);
+    try {
+      await fs.outputFile(outputPath, data);
+      consola.success(pc.green(`已创建：${outputPath}`));
+    } catch (e) {
+      consola.error(e);
+    }
   });
 }
 

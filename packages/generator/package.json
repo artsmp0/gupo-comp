@@ -3,9 +3,12 @@
   "version": "0.0.1",
   "main": "index.ts",
   "description": "Automatically generates the component directory structure",
+  "bin": {
+    "gpnew": "./bin/cli.js"
+  },
   "scripts": {
-    "gen-pc": "tsx ./pc.ts",
-    "gen-mobile": "tsx ./mobile.ts"
+    "build": "tsup",
+    "dev": "tsup --watch"
   },
   "publishConfig": {
     "access": "public",
@@ -30,11 +33,15 @@
     "@types/inquirer": "^9.0.3",
     "@types/lodash": "^4.14.194",
     "@types/prompts": "^2.4.4",
+    "commander": "^11.0.0",
+    "consola": "^3.2.2",
     "fs-extra": "^11.1.1",
     "inquirer": "^9.2.7",
     "lodash-es": "^4.17.21",
     "magicast": "^0.2.7",
+    "picocolors": "^1.0.0",
     "prompts": "^2.4.2",
+    "tsup": "^7.1.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   }

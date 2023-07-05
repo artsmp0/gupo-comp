@@ -1,7 +1,10 @@
 import { App } from 'vue';
+ import GupoSearchBar from './search-bar';
+import GupoTable from './table';
 
-const components: any[] = [];
-export {};
+const components: any[] = [GupoTable, GupoSearchBar];
+export { 
+GupoSearchBar, GupoTable };
 export default {
   install(app: App) {
     components.forEach(comp => {

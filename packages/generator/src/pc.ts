@@ -4,7 +4,7 @@ import { pcPkgPath } from './constants';
 import { genFile, updatePcEntry } from './logic';
 import inquirer from 'inquirer';
 
-async function init() {
+export async function createPcComp() {
   const response = await inquirer.prompt({
     type: 'input',
     name: 'name',
@@ -20,5 +20,3 @@ async function init() {
   genFile(name, prefixKebabName, prefixPascalName, pascalName, pcPkgPath);
   updatePcEntry(name, prefixPascalName, pcPkgPath);
 }
-
-init();
